@@ -13,4 +13,5 @@ app.config(['$routeProvider', function ($routeProvider) {
     templateUrl: "./views/author/author-form.html",
     controller: "authorController"
   })
+  $routeProvider.otherwise('/')
 }])
