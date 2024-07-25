@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Autores</title>
+</head>
+<body ng-controller="authorController">
+    <form name="authorForm">
+        <div>
+            <label for="name">Nome</label>
+            <input ng-model="author.name" id="name" name="name" type="text" placeholder="Digite o nome do autor">
+        </div>
+        <div>
+            <label for="age">Idade</label>
+            <input ng-model="author.age" id="age" name="age" type="number" placeholder="Digite a idade do autor">
+        </div>
+        <input type="submit" value="Cadastrar" ng-click="saveAuthor(author)">
+    </form>
+</body>
+</html>

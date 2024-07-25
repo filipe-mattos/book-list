@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Livros</title>
+</head>
+<body ng-controller="bookController">
+<form name="bookForm">
+    <div>
+        <label for="title">Titulo do Livro</label>
+        <input ng-model="book.title" id="title" name="title" type="text" placeholder="Digite o titulo do livro">
+    </div>
+    <div>
+        <label for="pageQty">Quantidade de Paginas</label>
+        <input ng-model="book.pageQty" id="pageQty" name="pageQty" type="number" placeholder="Digite a quantidade de paginas">
+    </div>
+    <div>
+        <label for="author">Selecione um Autor Credenciado</label>
+        <select id="author" name="author" ng-model="book.author" ng-options="author.name for author in authors">
+            <option value="">Selecione...</option>
+        </select>
+
+    </div>
+    <input type="submit" value="Cadastrar" ng-click="saveBook(book)">
+</form>
+</body>
+</html>

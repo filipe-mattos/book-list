@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta Livros</title>
+</head>
+<body ng-controller="homeController">
+    <header></header>
+    <section class="container">
+        <h1>Livros Cadastrados</h1>
+        <button type="button">Cadastrar Livro</button>
+        <button type="button">Cadastrar Autor</button>
+        <table>
+            <thead>
+                <th>Titulo</th>
+                <th>Paginas</th>
+                <th>Autor</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="book in books">
+                    <td>{{book.title}}</td>
+                    <td>{{book.pageQty}}</td>
+                    <td>{{book.author}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <footer></footer>
+</body>
+</html>

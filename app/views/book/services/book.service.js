@@ -1,0 +1,1 @@
+app.service('BookService', ['$http', '$q', function ($http, $q) {}])

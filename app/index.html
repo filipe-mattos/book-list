@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="consultaLivros">
+<head>
+    <meta charset="utf-8">
+    <title>Consulta de Livros</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="app.module.js"></script>
+    <script src="routes.js"></script>
+    <script src="./views/home/controllers/home.controller.js"></script>
+    <script src="./views/book/controllers/book.controller.js"></script>
+    <script src="./views/author/controllers/author.controller.js"></script>
+    <script src="./views/author/services/author.service.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div ng-view class="view-frame"></div>
+</div>
+
+</body>
+</html>
