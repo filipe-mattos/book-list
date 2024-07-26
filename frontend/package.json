@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server ./app/index.html -a localhost -p 8000 -c-1",
-    "copy-libs": "cpx \"node_modules/{angular,angular-*,bootstrap/dist,jquery/dist}/**/*\" app/lib -C"
+    "start": "../node_modules/.bin/http-server ./app/index.html -a localhost -p 8000 -c-1",
+    "copy-libs": "../node_modules/.bin/cpx \\\"node_modules/{angular,angular-*,bootstrap/dist,jquery/dist}/**/*\\\" app/lib -C"
   },
   "keywords": [],
   "author": "",
