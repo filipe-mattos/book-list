@@ -13,15 +13,24 @@
     <script src="app.module.js"></script>
     <script src="routes.js"></script>
     <script src="views/home/controllers/home.controller.js"></script>
+    <script src="views/home/services/home.service.js"></script>
     <script src="views/book/controllers/book.controller.js"></script>
+    <script src="views/book/services/book.service.js"></script>
     <script src="views/author/controllers/author.controller.js"></script>
     <script src="views/author/services/author.service.js"></script>
 </head>
 <body>
-
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+        <ul class="navbar-nav justify-content-between">
+            <li class="nav-item"><a class="nav-link active" href="#!/home">Home Page</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#!/book" >Cadastrar Livro</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#!/author">Cadastrar Autor</a></li>
+        </ul>
+    </nav>
+</header>
 <div class="container">
     <div ng-view class="view-frame"></div>
 </div>
-
 </body>
 </html>

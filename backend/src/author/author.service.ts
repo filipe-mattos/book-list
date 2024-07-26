@@ -12,10 +12,10 @@ export class AuthorService {
     }
 
     async create(author: AuthorDTO){
-        return 'author create'
+        return this.prismaService.authors.create({data: author});
     }
 
     async delete(id: number){
-        return 'author deleted'
+        return this.prismaService.authors.delete({where: {author_id: id}});
     }
 }

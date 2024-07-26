@@ -5,24 +5,24 @@
     <title>Cadastro de Livros</title>
 </head>
 <body ng-controller="bookController">
-<a href="/">Voltar</a>
-<form name="bookForm">
-    <div>
-        <label for="title">Titulo do Livro</label>
-        <input ng-model="book.title" id="title" name="title" type="text" placeholder="Digite o titulo do livro">
+<form name="bookForm" class="mt-5 mb-5">
+    <h1 class="text-center">Cadastro de Livro</h1>
+    <div class="mb-3">
+        <label class="form-label" for="title">Titulo do Livro</label>
+        <input ng-model="book.title" class="form-control" id="title" name="title" type="text" placeholder="Digite o titulo do livro">
     </div>
-    <div>
-        <label for="pageQty">Quantidade de Paginas</label>
-        <input ng-model="book.pageQty" id="pageQty" name="pageQty" type="number" placeholder="Digite a quantidade de paginas">
+    <div class="mb-3">
+        <label class="form-label" for="pageqty">Quantidade de Paginas</label>
+        <input class="form-control" ng-model="book.pageqty" id="pageqty" name="pageqty" type="number" placeholder="Digite a quantidade de paginas">
     </div>
-    <div>
-        <label for="author">Selecione um Autor Credenciado</label>
-        <select id="author" name="author" ng-model="book.author" ng-options="author.name for author in authors">
+    <div class="mb-3">
+        <label class="form-label" for="author">Selecione um Autor Credenciado</label>
+        <select class="form-control" id="author" name="author" ng-model="book.author_id" ng-options="author.author_id as author.name for author in authors.authors">
             <option value="">Selecione...</option>
         </select>
 
     </div>
-    <input type="submit" value="Cadastrar" ng-click="saveBook(book)">
+    <input class="btn btn-primary mt-3" type="submit" value="Cadastrar" ng-click="saveBook(book)">
 </form>
 </body>
 </html>

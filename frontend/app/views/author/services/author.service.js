@@ -1,30 +1,39 @@
-app.factory('authorService', [function () {
-  const dbConnection = indexedDB.open('ConsultaLivros', 1)
-
-  async function _listAuthors(key) {
-    return (await dbConnection).get('authors');
-  }
-  async function _saveAuthor(val) {
-    return (await dbConnection).put('authors', val);
-  }
-
-
-  const _saveAuthorOnLocalStorage = function (author) {
-
-
-
-    try {
-      const savedAuthor = _saveAuthor(author);
-      //const storage = window.localStorage;
-      //storage.setItem('author', JSON.stringify(author));
-      return true;
-    }catch(err) {
-      console.log(err);
+app.factory('authorService', ['$http',
+  function ($http) {
+  const _save = function (author) {
+    let config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
     }
-  }
 
+    //tratar erros das requests dps
+
+    $http.post('http://localhost:3000/author', author, config)
+      .then( (response) => {
+        console.log('Sucesso');
+      }).catch( (err) => {
+        console.log(err);
+    });
+
+  }
+  const _list = function () {
+    let config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    let obj = {};
+    const result = $http.get('http://localhost:3000/author', config)
+    result.then( ({data}) => {
+      obj.authors = data;
+      console.log(data);
+    })
+    return obj;
+  }
   return {
-    saveAuthorOnLocalStorage: _saveAuthorOnLocalStorage
+    saveAuthor: _save,
+    listAuthors: _list
   }
 
 }])

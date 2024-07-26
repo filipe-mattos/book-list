@@ -6,7 +6,7 @@ import {BookService} from "./book.service";
 @Controller('/book')
 export class BookController {
     constructor(private readonly bookService: BookService) {
-    }
+    }3
 
     @Get()
     async getBooks() {

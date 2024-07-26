@@ -1,21 +1,10 @@
-app.controller('bookController', function ($scope) {
-  $scope.books = [];
+app.controller('bookController', function ($scope, bookService, authorService) {
+  $scope.books = bookService.listBooks();
 
   //Fazer funcao para carregar esses dados do localStorage
-  $scope.authors = [
-    {
-      name: "Filipe",
-      age: 24,
-    },
-    {
-      name: "Julia",
-      age: 16,
-    }
-  ];
+  $scope.authors = authorService.listAuthors();
   $scope.saveBook = function(book){
-    //Salvar no local host atravez de um service
-    $scope.books.push(book);
-    console.log($scope.books);
+    bookService.saveBook(book)
   }
 
 })

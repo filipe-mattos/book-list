@@ -5,7 +5,7 @@ export class BookDto {
     title: string;
 
     @IsNumber()
-    pageQty: number
+    pageqty: number
 
     @IsNumber()
     author_id: number

@@ -1,18 +1,27 @@
 import {Injectable} from "@nestjs/common";
 import {BookDto} from "./models/book.dto";
+import {PrismaService} from "../database/prisma/prisma.service";
 
 @Injectable()
 export class BookService {
 
-    async list(){
-        return 'books list'
+    constructor(private readonly prismaService: PrismaService) {
     }
 
-    async create(book: BookDto){
-        return 'book create'
+    async list(){
+        return this.prismaService.books.findMany({
+            include: {
+                authors: true,
+            }
+        }
+        );
+    }
+
+    async create({title, pageqty, author_id}: BookDto){
+        return this.prismaService.books.create({data: {title,  pageqty, author_id}});
     }
 
     async delete(id: number){
-        return 'book deleted'
+        return this.prismaService.books.findMany();
     }
 }

@@ -1,3 +1,4 @@
-app.controller('homeController', function ($scope) {
-  $scope.books = [{title: 'teste123', pageQty: 123, author: 'Filipe Mattos'}]
+app.controller('homeController', function ($scope, homeService) {
+  $scope.books = homeService.getBooks();
+  console.log($scope.books);
 })

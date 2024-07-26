@@ -1,0 +1,6 @@
+services:
+  consulta-livros:
+    extends:
+      file: postgresql.yml
+      service: consulta-livros
+    container_name: consulta-livros-container

@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "../node_modules/.bin/http-server ./app/index.html -a localhost -p 8000 -c-1",
-    "copy-libs": "../node_modules/.bin/cpx \\\"node_modules/{angular,angular-*,bootstrap/dist,jquery/dist}/**/*\\\" app/lib -C"
+    "copy-libs": "cpx \"node_modules/{angular,angular-*,bootstrap/dist,jquery/dist}/**/*\" app/lib -C"
   },
   "keywords": [],
   "author": "",
@@ -15,12 +15,12 @@
     "angular-animate": "1.8.x",
     "angular-resource": "1.8.x",
     "angular-route": "1.8.x",
-    "bootstrap": "3.3.x",
+    "bootstrap": "^5.3.3",
     "jquery": "3.3.x"
   },
   "devDependencies": {
-    "http-server": "^0.11.1",
-    "cpx": "^1.5.0"
+    "cpx": "^1.5.0",
+    "http-server": "^0.11.1"
   },
   "description": ""
 }
