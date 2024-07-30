@@ -1,5 +1,5 @@
-app.factory('bookService', ['$http',
-  function ($http) {
+app.factory('bookService', ['$http', '$location',
+  function ($http, $location) {
     const _save = function (book) {
       let config = {
         headers: {
@@ -11,7 +11,7 @@ app.factory('bookService', ['$http',
 
       $http.post('http://localhost:3000/book', book, config)
         .then( (response) => {
-          console.log('Sucesso');
+          $location.path('/home');
         }).catch( (err) => {
         console.log(err);
       });
@@ -28,7 +28,6 @@ app.factory('bookService', ['$http',
       const result = $http.get('http://localhost:3000/book', config)
       result.then( ({data}) => {
         obj.books = data;
-        console.log(data);
       })
       return obj;
     }

@@ -9,20 +9,23 @@
     <h1 class="text-center">Cadastro de Livro</h1>
     <div class="mb-3">
         <label class="form-label" for="title">Titulo do Livro</label>
-        <input ng-model="book.title" class="form-control" id="title" name="title" type="text" placeholder="Digite o titulo do livro">
+        <input ng-required="true" ng-class="bookForm.title.$invalid ? 'is-invalid' : 'is-valid' " ng-model="book.title" class="form-control" id="title" name="title" type="text" placeholder="Digite o titulo do livro">
     </div>
     <div class="mb-3">
         <label class="form-label" for="pageqty">Quantidade de Paginas</label>
-        <input class="form-control" ng-model="book.pageqty" id="pageqty" name="pageqty" type="number" placeholder="Digite a quantidade de paginas">
+        <input ng-required="true" ng-class="bookForm.pageqty.$invalid ? 'is-invalid' : 'is-valid' " class="form-control" ng-model="book.pageqty" id="pageqty" name="pageqty" type="number" placeholder="Digite a quantidade de paginas">
     </div>
     <div class="mb-3">
         <label class="form-label" for="author">Selecione um Autor Credenciado</label>
-        <select class="form-control" id="author" name="author" ng-model="book.author_id" ng-options="author.author_id as author.name for author in authors.authors">
+        <select ng-required="true" ng-class="bookForm.author.$invalid ? 'is-invalid' : 'is-valid' " class="form-control" id="author" name="author" ng-model="book.author_id" ng-options="author.author_id as author.name for author in authors.authors">
             <option value="">Selecione...</option>
         </select>
 
     </div>
-    <input class="btn btn-primary mt-3" type="submit" value="Cadastrar" ng-click="saveBook(book)">
+    <input class="btn btn-primary mt-3" type="submit" value="Cadastrar" ng-disabled="bookForm.$invalid" ng-click="saveBook(book)">
 </form>
+<div class="text-center" ng-if="bookForm.$invalid">
+    <p class="bg-danger text-white p-2 rounded-3">Preencha todos os campos!!</p>
+</div>
 </body>
 </html>

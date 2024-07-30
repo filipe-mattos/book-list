@@ -9,13 +9,16 @@
         <h1 class="text-center">Cadastrar Autor</h1>
         <div class="mb-3">
             <label class="form-label" for="name">Nome</label>
-            <input class="form-control" ng-model="author.name" id="name" name="name" type="text" placeholder="Digite o nome do autor">
+            <input class="form-control" ng-required="true" ng-class="authorForm.name.$invalid ? 'is-invalid' : 'is-valid' " ng-model="author.name" id="name" name="name" type="text" placeholder="Digite o nome do autor">
         </div>
         <div class="mb-3">
             <label class="form-label" for="age">Idade</label>
-            <input class="form-control" ng-model="author.age" id="age" name="age" type="number" placeholder="Digite a idade do autor">
+            <input class="form-control" ng-required="true" ng-class="authorForm.age.$invalid ? 'is-invalid' : 'is-valid' " ng-model="author.age" id="age" name="age" type="number" placeholder="Digite a idade do autor">
         </div>
-        <input class="btn btn-primary mt-3" type="submit" value="Cadastrar" ng-click="saveAuthor(author)">
+        <input class="btn btn-primary mt-3" type="submit" ng-disabled="authorForm.$invalid" value="Cadastrar" ng-click="saveAuthor(author)">
+        <div class="text-center" ng-if="bookForm.$invalid">
+            <p class="bg-danger text-white p-2 rounded-3">Preencha todos os campos!!</p>
+        </div>
     </form>
 </body>
 </html>
